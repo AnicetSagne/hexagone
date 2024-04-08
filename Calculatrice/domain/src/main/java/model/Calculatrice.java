@@ -3,15 +3,19 @@ package model;
 public class Calculatrice {
 
     Integer id;
-    Double nb1;
-    Double nb2;
-    Double resultat;
+    double nb1;
+    double nb2;
+    double resultat;
+    Operateur operateur;
 
-    public Calculatrice(Integer id, Double nb1, Double nb2, Double resultat) {
-        this.id = id;
+    public Calculatrice() {
+    }
+
+    public Calculatrice(double nb1, double nb2, double resultat, Operateur operateur) {
         this.nb1 = nb1;
         this.nb2 = nb2;
         this.resultat = resultat;
+        this.operateur = operateur;
     }
 
     public Integer getId() {
@@ -22,37 +26,27 @@ public class Calculatrice {
         this.id = id;
     }
 
-    public Double getNb1() {
+    public double getNb1() {
         return nb1;
     }
 
-    public void setNb1(Double nb1) {
+    public void setNb1(double nb1) {
         this.nb1 = nb1;
     }
 
-    public Double getNb2() {
+    public double getNb2() {
         return nb2;
     }
 
-    public void setNb2(Double nb2) {
+    public void setNb2(double nb2) {
         this.nb2 = nb2;
     }
 
-    public Double getResultat() {
+    public double getResultat() {
         return resultat;
     }
 
-    public void setResultat(Double resultat) {
+    public void setResultat(double resultat) {
         this.resultat = resultat;
-    }
-
-    @Override
-    public String toString() {
-        return "Calculatrice{" +
-                "id=" + id +
-                ", nb1=" + nb1 +
-                ", nb2=" + nb2 +
-                ", resultat=" + resultat +
-                '}';
     }
 }

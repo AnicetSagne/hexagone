@@ -1,2 +1,4 @@
-port\CalculatricePort.class
+model\CalculerUseCaseImpl.class
+port\CalculerUseCase.class
+port\CalculerPortOut.class
 model\Calculatrice.class

@@ -5,9 +5,13 @@ import model.Calculatrice;
 
 public interface CalculerUseCase {
 
-    Calculatrice additionner(Calculatrice calculatrice);
+    Calculatrice additionner(double nb1, double nb2);
 
-    Calculatrice soustraire(Calculatrice calculatrice);
+    Calculatrice soustraire(double nb1, double nb2);
+
+    Calculatrice multiplication(double nb1, double nb2);
+
+    Calculatrice division(double nb1, double nb2);
 
     void afficher(Calculatrice calculatrice);
 }
