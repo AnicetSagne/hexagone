@@ -1,17 +1,19 @@
 package port;
 
-import model.Calculatrice;
+import model.CalculatriceD;
+
+import java.util.List;
 
 
 public interface CalculerUseCase {
 
-    Calculatrice additionner(double nb1, double nb2);
+    CalculatriceD additionner(double nb1, double nb2);
 
-    Calculatrice soustraire(double nb1, double nb2);
+    CalculatriceD soustraire(double nb1, double nb2);
 
-    Calculatrice multiplication(double nb1, double nb2);
+    CalculatriceD multiplication(double nb1, double nb2);
 
-    Calculatrice division(double nb1, double nb2);
+    CalculatriceD division(double nb1, double nb2);
 
-    void afficher(Calculatrice calculatrice);
+    List<CalculatriceD> getAllCalculs();
 }

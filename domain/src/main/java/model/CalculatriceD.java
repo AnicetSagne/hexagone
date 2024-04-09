@@ -1,6 +1,6 @@
 package model;
 
-public class Calculatrice {
+public class CalculatriceD {
 
     Integer id;
     double nb1;
@@ -8,10 +8,10 @@ public class Calculatrice {
     double resultat;
     Operateur operateur;
 
-    public Calculatrice() {
+    public CalculatriceD() {
     }
 
-    public Calculatrice(double nb1, double nb2, double resultat, Operateur operateur) {
+    public CalculatriceD(double nb1, double nb2, double resultat, Operateur operateur) {
         this.nb1 = nb1;
         this.nb2 = nb2;
         this.resultat = resultat;

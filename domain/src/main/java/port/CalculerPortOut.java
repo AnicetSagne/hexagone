@@ -1,11 +1,11 @@
 package port;
 
-import model.Calculatrice;
+import model.CalculatriceD;
 
 import java.util.List;
 
 public interface CalculerPortOut {
-    void create(Calculatrice calculatrice);
+    CalculatriceD create(CalculatriceD calculatriceD);
 
-    List<Calculatrice> getAllCalculs();
+    List<CalculatriceD> getAllCalculs();
 }

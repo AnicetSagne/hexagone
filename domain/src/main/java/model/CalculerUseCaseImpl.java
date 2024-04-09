@@ -1,46 +1,56 @@
 package model;
 
 
+import ddd.DomainService;
+import port.CalculerPortOut;
 import port.CalculerUseCase;
 
+import java.util.List;
+
+@DomainService
 public class CalculerUseCaseImpl implements CalculerUseCase {
+    private final CalculerPortOut calculerPortOut;
+
+    public CalculerUseCaseImpl(CalculerPortOut calculerPortOut) {
+        this.calculerPortOut = calculerPortOut;
+    }
+
+
     @Override
-    public Calculatrice additionner(double nb1, double nb2) {
+    public CalculatriceD additionner(double nb1, double nb2) {
         double res = nb1 + nb2;
-        Calculatrice calculatrice = new Calculatrice(nb1, nb2, res, Operateur.ADDITION);
-        afficher(calculatrice);
-        return calculatrice;
+        CalculatriceD calculatriceD = new CalculatriceD(nb1, nb2, res, Operateur.ADDITION);
+
+        return calculerPortOut.create(calculatriceD);
     }
 
     @Override
-    public Calculatrice soustraire(double nb1, double nb2) {
+    public CalculatriceD soustraire(double nb1, double nb2) {
         double res = nb1 - nb2;
-        Calculatrice calculatrice = new Calculatrice(nb1, nb2, res, Operateur.SOUSTRACTION);
-        afficher(calculatrice);
-        return calculatrice;
+        CalculatriceD calculatriceD = new CalculatriceD(nb1, nb2, res, Operateur.SOUSTRACTION);
+        return calculerPortOut.create(calculatriceD);
     }
 
     @Override
-    public Calculatrice multiplication(double nb1, double nb2) {
+    public CalculatriceD multiplication(double nb1, double nb2) {
         double res = nb1 * nb2;
-        Calculatrice calculatrice = new Calculatrice(nb1, nb2, res, Operateur.MULTIPLICATION);
-        afficher(calculatrice);
-        return calculatrice;
+        CalculatriceD calculatriceD = new CalculatriceD(nb1, nb2, res, Operateur.MULTIPLICATION);
+        return calculerPortOut.create(calculatriceD);
     }
 
     @Override
-    public Calculatrice division(double nb1, double nb2) {
+    public CalculatriceD division(double nb1, double nb2) {
         if (nb2 == 0) {
             throw new ArithmeticException("Impossible de diviser par 0");
         }
         double res = nb1 / nb2;
-        Calculatrice calculatrice = new Calculatrice(nb1, nb2, res, Operateur.DIVISION);
-        afficher(calculatrice);
-        return calculatrice;
+        CalculatriceD calculatriceD = new CalculatriceD(nb1, nb2, res, Operateur.DIVISION);
+        return calculerPortOut.create(calculatriceD);
     }
 
     @Override
-    public void afficher(Calculatrice calculatrice) {
-        System.out.println(calculatrice.getResultat());
+    public List<CalculatriceD> getAllCalculs() {
+        return calculerPortOut.getAllCalculs();
     }
+
 }
