@@ -1,4 +1,6 @@
 model\CalculerUseCaseImpl.class
 port\CalculerUseCase.class
+ddd\DomainService.class
+model\CalculatriceD.class
+model\Operateur.class
 port\CalculerPortOut.class
-model\Calculatrice.class
