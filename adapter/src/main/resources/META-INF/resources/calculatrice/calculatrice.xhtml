@@ -1,0 +1,84 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="title">
+        Paramétrage | Agence
+    </ui:define>
+
+
+    <ui:define name="content">
+        <div class="grid">
+            <div class="col-12 lg:col-6">
+                <h:form id="calculatriceTableForm">
+                    <div class="card">
+                        <h4 class="ui-subtitle font-bold">Liste des calculatrices (#{calculerMB.calculatrices.size()})</h4>
+                        <div class="ui-form-icon mb-4">
+                            <i class="pi pi-info-circle"></i> <span>Veuillez
+								selectionner une calculatrice pour voir les détails</span>
+                        </div>
+                        <h:dataTable emptyMessage="Aucune calculatrice trouvée."
+                                     scrollable="true" scrollHeight="274" lazy="false" var="calculatrice"
+                                     selectionMode="single" value="#{calculerMB.calculatrices}"
+                                     selection="#{calculerMB.calculatrice}" rowKey="#{calculatrice.id}">
+                            <h:column filterMatchMode="contains" filterBy="#{calculatrice.nb1}"
+                                      headerText="Nombre 1">
+                                <h:outputText value="#{calculatrice.nb1}"/>
+                            </h:column>
+                            <h:column filterMatchMode="contains" filterBy="#{calculatrice.nb2}"
+                                      headerText="Nombre 2">
+                                <h:outputText value="#{calculatrice.nb2}"/>
+                            </h:column>
+                            <h:column filterMatchMode="contains" filterBy="#{calculatrice.operateur.toString()}"
+                                      headerText="Opérateur">
+                                <h:outputText value="#{calculatrice.operateur.toString()}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                </h:form>
+            </div>
+            <div class="col-12 lg:col-6">
+                <h:form id="calculatriceForm">
+                    <div class="card">
+                        <h4 class="ui-subtitle font-bold">Edition d'une calculatrice</h4>
+                        <div class="field">
+                            <i class="pi pi-info-circle"></i> <span>Veuillez
+								renseigner les champs suivants</span>
+                        </div>
+                        <div class="ui-fluid formgrid grid">
+                            <div class="field col-12">
+                                <h:outputLabel value="Code calculatrice"/>
+                                <h:inputText value="#{calculerMB.calculatrice.nb1}" required="true"
+                                             requiredMessage="Nombre 1 est obligatoire"
+                                             placeholder="Nombre 1"/>
+                            </div>
+                            <div class="field col-12">
+                                <h:outputLabel value="Libellé calculatrice"/>
+                                <h:inputText value="#{calculerMB.calculatrice.nb2}" required="true"
+                                             requiredMessage="Nombre 2 est obligatoire"
+                                             placeholder="Nombre 2"/>
+                            </div>
+                            <div class="field col-12">
+                                <h:outputLabel value="Adresse postale"/>
+                                <h:inputText value="#{calculerMB.calculatrice.operateur}"
+                                             required="false"
+                                             requiredMessage="Opérateur est obligatoire"
+                                             placeholder="Opérateur"/>
+                            </div>
+
+                        </div>
+                        <h:commandButton value="Calculer"
+                                         action="#{calculerMB.additionner()}"
+                                         update="calculatriceForm,calculatriceTableForm" process="calculatriceForm"
+                                         icon="pi pi-check" styleClass="w-auto"/>
+                        <h:commandButton value="Réinitialiser"
+                                         update="calculatriceForm,calculatriceTableForm" process="@this"
+                                         action="#{calculerMB.reinitialiser()}" icon="pi pi-undo"
+                                         styleClass="ml-1 w-auto"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
