@@ -4,6 +4,7 @@ package org.itcentrex.com.infrastructure.bean;
 
 import jakarta.annotation.ManagedBean;
 import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
 import lombok.Getter;
 import lombok.Setter;
 import org.itcentrex.com.infrastructure.Model.Calculatrice;
@@ -12,12 +13,13 @@ import org.itcentrex.com.infrastructure.in.CalculerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import javax.faces.view.ViewScoped;
+
 import java.io.Serializable;
 import java.util.List;
 
 @ManagedBean
 @ViewScoped
+
 public class CalculerMB implements Serializable {
 
 
